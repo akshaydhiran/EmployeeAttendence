@@ -1,5 +1,6 @@
 package com.example.employeeattendence;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         FloatingActionButton fab = findViewById(R.id.fab);
@@ -97,6 +99,10 @@ public class MainActivity extends AppCompatActivity
 
         } else if (id == R.id.nav_send) {
 
+        }else if (id == R.id.nav_logout) {
+            Intent intent = new Intent(MainActivity.this,LoginActivity.class);
+            startActivity(intent);
+            finish();
         }
 
         DrawerLayout drawer = findViewById(R.id.drawer_layout);

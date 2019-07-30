@@ -27,6 +27,7 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_up);
+        getSupportActionBar().hide();
         mAuth = FirebaseAuth.getInstance();
         e1 = findViewById(R.id.reg_email);
         e2 = findViewById(R.id.reg_password);
@@ -62,7 +63,7 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void signUp(String email,String password){
+    private void signUp(String email ,String password){
         mAuth.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
@@ -75,8 +76,7 @@ public class SignUpActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "createUserWithEmail:failure", task.getException());
-                            Toast.makeText(SignUpActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(SignUpActivity.this, "Authentication failed.",Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
 
@@ -89,7 +89,7 @@ public class SignUpActivity extends AppCompatActivity {
         if(user==null){
 
         }else{
-            Intent intent = new Intent(SignUpActivity.this,MainActivity.class);
+            Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
             startActivity(intent);
         }
     }

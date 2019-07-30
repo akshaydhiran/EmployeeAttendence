@@ -1,53 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="#BBECF7"
     tools:context=".LoginActivity">
-
-    <TextView
-        android:id="@+id/log_textview"
+    <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text= "LOGIN"
-        android:textSize="50dp"
-        android:textAlignment="center"
-        android:textColor="#F10A0A"/>
-
-    <EditText
-        android:id="@+id/log_username"
-        android:inputType="text"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="USER NAME"
-        />
-    <EditText
-        android:id="@+id/log_password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:inputType="text"
-        android:hint="PASSWORD"/>
-
-    <Button
-        android:id="@+id/log_login"
-        android:layout_marginStart="150dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="LOGIN"
-        android:onClick="login"
+        android:layout_height="80dp"
+        android:src="@drawable/goldman_sachs_logo"
         />
 
-    <Button
-        android:id="@+id/signUpBtn"
-        android:layout_marginStart="150dp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:text="SignUp"
-        android:onClick="singUp"
-        />
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="500dp"
+        app:cardElevation="5dp"
+        app:cardCornerRadius="5dp"
+        android:layout_marginTop="50dp"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_marginTop="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/log_textview"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text= "EMPLOYEE LOGIN PANEL"
+                android:textSize="50dp"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="#0E0801"/>
+
+            <EditText
+                android:layout_marginTop="70dp"
+                android:id="@+id/log_username"
+                android:inputType="text"
+                android:drawableEnd="@drawable/ic_username_blue"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="USER NAME"
+                />
+            <EditText
+                android:id="@+id/log_password"
+                android:layout_width="match_parent"
+                android:drawableEnd="@drawable/ic_lock_black_24dp"
+                android:layout_height="wrap_content"
+                android:inputType="text"
+                android:hint="PASSWORD"/>
+
+            <Button
+                android:id="@+id/log_login"
+                android:layout_marginStart="150dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="LOGIN"
+
+                />
+
+            <Button
+                android:id="@+id/signUpBtn"
+                android:layout_marginStart="150dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Sign up"
+
+                />
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
 
 </LinearLayout>

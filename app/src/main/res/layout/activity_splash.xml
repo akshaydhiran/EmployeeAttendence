@@ -5,7 +5,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:weightSum="1"
     android:orientation="vertical"
-    android:background="#F5C2F5">
+    android:background="#5AB4E0">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,7 +17,7 @@
         android:layout_height="0dp"
         android:layout_width="match_parent"
         android:layout_weight=".50"
-        android:background="@drawable/android_google"
+        android:background="@drawable/goldman_sachs_logo"
 
         ></LinearLayout>
 </LinearLayout>

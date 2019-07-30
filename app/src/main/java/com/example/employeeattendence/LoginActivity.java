@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -19,6 +20,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     EditText e1,e2;
+    Button loginButton,signupButton;
     private FirebaseAuth mAuth;
     private static final String TAG = "LoginActivity";
     @Override
@@ -27,24 +29,55 @@ public class LoginActivity extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         e1 = findViewById(R.id.log_username);
         e2 = findViewById(R.id.log_password);
+        loginButton = findViewById(R.id.log_login);
+        signupButton = findViewById(R.id.signUpBtn);
+        getSupportActionBar().hide();
         mAuth = FirebaseAuth.getInstance();
+
+        signupButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        loginButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+            String email,pass;
+            email = e1.getText().toString();
+            pass = e2.getText().toString();
+                if(TextUtils.isEmpty(email)){
+                    e1.setError("Please enter email");
+                    return;
+                }
+
+                if(TextUtils.isEmpty(pass)){
+                    e2.setError("Please enter pass");
+                    return;
+                }
+            fireLogin(email,pass);
+
+            }
+        });
     }
 
-    public void login(View view){
-        String email,pass;
-        email = e1.getText().toString();
-        pass = e2.getText().toString();
-        if(TextUtils.isEmpty(email)){
-            e1.setError("Please enter email");
-            return;
-        }
-        if(TextUtils.isEmpty(pass)){
-            e2.setError("Please enter pass");
-            return;
-        }
-        fireLogin(email,pass);
-    }
-
+    //public void login(View view){
+    //
+    //        String email,pass;
+    //        email = e1.getText().toString();
+    //        pass = e2.getText().toString();
+    //        if(TextUtils.isEmpty(email)){
+    //            e1.setError("Please enter email");
+    //            return;
+    //        }
+    //        if(TextUtils.isEmpty(pass)){
+    //            e2.setError("Please enter pass");
+    //            return;
+    //        }
+    //        fireLogin(email,pass);
+    //    }
     private void fireLogin(String email,String pass){
         mAuth.signInWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -60,8 +93,7 @@ public class LoginActivity extends AppCompatActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(LoginActivity.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LoginActivity.this, "Authentication failed.",Toast.LENGTH_SHORT).show();
 
                         }
 
@@ -69,9 +101,9 @@ public class LoginActivity extends AppCompatActivity {
                     }
                 });
     }
-    public void singUp(View view){
-        Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
-        startActivity(intent);
-    }
 
+    //public void singUp(View view){
+    //        Intent intent = new Intent(LoginActivity.this,SignUpActivity.class);
+    //        startActivity(intent);
+    //    }
 }
