@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".LoginActivity">
+
+    <TextView
+        android:id="@+id/log_textview"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text= "LOGIN"
+        android:textSize="50dp"
+        android:textAlignment="center"
+        android:textColor="#F10A0A"/>
+
+    <EditText
+        android:id="@+id/log_username"
+        android:inputType="text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="USER NAME"
+        />
+    <EditText
+        android:id="@+id/log_password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:hint="PASSWORD"/>
+
+    <Button
+        android:id="@+id/log_login"
+        android:layout_marginStart="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="LOGIN"
+        android:onClick="login"
+        />
+
+    <Button
+        android:id="@+id/signUpBtn"
+        android:layout_marginStart="150dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:text="SignUp"
+        android:onClick="singUp"
+        />
+
+</LinearLayout>
