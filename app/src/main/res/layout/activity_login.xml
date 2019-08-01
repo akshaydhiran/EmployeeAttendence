@@ -16,7 +16,7 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="500dp"
+        android:layout_height="600dp"
         app:cardElevation="5dp"
         app:cardCornerRadius="5dp"
         android:layout_marginTop="50dp"
@@ -56,7 +56,7 @@
                 android:hint="PASSWORD"/>
 
             <Button
-                android:id="@+id/log_login"
+                android:id="@+id/loginuser"
                 android:layout_marginStart="150dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -66,12 +66,30 @@
                 />
 
             <Button
-                android:id="@+id/signUpBtn"
+                android:id="@+id/signupuser"
                 android:layout_marginStart="150dp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Sign up"
+
+                />
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onFaceBookLogin"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="30dp" />
+            <Button
+                android:id="@+id/forgotpassword"
+                android:layout_marginStart="150dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Forgot "
 
                 />
 

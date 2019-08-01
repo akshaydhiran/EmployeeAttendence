@@ -14,6 +14,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import android.view.MenuItem;
 
 import com.google.android.material.navigation.NavigationView;
+import com.google.firebase.auth.FirebaseAuth;
 
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -100,6 +101,8 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_send) {
 
         }else if (id == R.id.nav_logout) {
+            //To SignOut from the Main Activity
+            FirebaseAuth.getInstance().signOut();
             Intent intent = new Intent(MainActivity.this,LoginActivity.class);
             startActivity(intent);
             finish();

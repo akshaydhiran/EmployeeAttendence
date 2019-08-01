@@ -20,4 +20,8 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+    <string name="facebook_app_id">479738416135699</string>
+    <string name="fb_login_protocol_scheme">fb479738416135699</string>
+
+
 </resources>

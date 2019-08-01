@@ -63,8 +63,8 @@ public class SignUpActivity extends AppCompatActivity {
         });
     }
 
-    private void signUp(String email ,String password){
-        mAuth.createUserWithEmailAndPassword(email, password)
+    private void signUp(String email ,String pass){
+        mAuth.createUserWithEmailAndPassword(email, pass)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
