@@ -28,7 +28,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class LoginActivity extends AppCompatActivity {
     EditText userEmail,userPass;
-    Button loginButton,signupButton,forgotPasswordButton;
+    Button loginButton,signupButton,forgotPasswordButton,phoneVerifyButton;
     private FirebaseAuth mAuth;
     private static final String TAG = "LoginActivity";
 
@@ -45,7 +45,11 @@ public class LoginActivity extends AppCompatActivity {
         signupButton = findViewById(R.id.signupuser);
         forgotPasswordButton = findViewById(R.id.forgotpassword);
 
+        phoneVerifyButton = findViewById(R.id.log_phoneverify);
         mAuth = FirebaseAuth.getInstance();
+
+
+
 
         signupButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +59,8 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
+
+
         forgotPasswordButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -62,6 +68,19 @@ public class LoginActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+
+
+        phoneVerifyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(LoginActivity.this,PhoneVerifyActivity.class);
+                startActivity(intent);
+            }
+        });
+
+
+
         loginButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

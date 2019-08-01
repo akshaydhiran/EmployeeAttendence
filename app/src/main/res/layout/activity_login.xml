@@ -74,6 +74,17 @@
                 android:text="LOGIN"
 
                 />
+            <Button
+                android:id="@+id/log_phoneverify"
+                android:layout_marginStart="150dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16dp"
+             android:drawableStart="@drawable/ic_perm_phone_msg_black_24dp"
+                android:text="PHONE VERIFICATION"
+
+
+                />
 
             <Button
                 android:id="@+id/signupuser"

@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".PhoneVerifyActivity"
+    android:background="#B9DFF0">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/goldman_sachs_logo"/>
+
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="5dp"
+        app:cardUseCompatPadding="true"
+        app:cardElevation="5dp"
+        android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:layout_height="500dp">
+        <LinearLayout
+            android:layout_margin="10dp"
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/reg_loginform"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="PHONE VERIFICATION"
+                android:layout_margin="10dp"
+                android:textStyle="bold"
+                android:textSize="40dp"
+                android:textAlignment="center"
+                android:textColor="#0F0B01"/>
+            <EditText
+                android:id="@+id/reg_phonenumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="PHONE NUMBER"
+                android:drawableEnd="@drawable/ic_mail_black_24dp"
+                android:inputType="number"/>
+
+            <Button
+                android:layout_marginTop="20dp"
+                android:id="@+id/reg_phonebutton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="SEND VERIFICATION"
+                android:backgroundTint="#1478DD"
+                android:textColor="#FFFFFF"
+                android:textSize="20sp"/>
+            <EditText
+                android:id="@+id/reg_verificationcode"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="VERIFICATION CODE"
+                android:drawableEnd="@drawable/ic_perm_phone_msg_black_24dp"
+                android:inputType="number"/>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+
+
+</LinearLayout>
