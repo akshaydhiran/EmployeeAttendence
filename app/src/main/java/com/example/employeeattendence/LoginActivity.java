@@ -26,6 +26,8 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
+import util.MainActivity;
+
 public class LoginActivity extends AppCompatActivity {
     EditText userEmail,userPass;
     Button loginButton,signupButton,forgotPasswordButton,phoneVerifyButton;
@@ -205,7 +207,7 @@ public class LoginActivity extends AppCompatActivity {
         if(user==null){
 
         }else{
-            Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
             startActivity(intent);
         }
     }
