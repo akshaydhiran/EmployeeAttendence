@@ -1,0 +1,51 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="fragments.HomeFragments"
+    android:orientation="vertical"
+    android:background="#E5F0F3">
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/goldman_sachs_logo"/>
+    <TextView
+        android:id="@+id/t1"
+        android:textColor="#F4511E"
+        android:layout_margin="10dp"
+        android:textStyle="bold"
+        android:textSize="25dp"
+        android:gravity="center_horizontal"
+        android:text="Welcome AKSHAY "
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:gravity="center_horizontal"
+        android:text="Today's Date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+
+    <TextView
+        android:id="@+id/t2"
+        android:textColor="#3949AB"
+        android:textSize="18dp"
+        android:textStyle="bold"
+        android:layout_marginTop="5dp"
+        android:gravity="center_horizontal"
+        android:text="08/08/2019"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:id="@+id/b1"
+        android:textStyle="bold"
+        android:textSize="14dp"
+        android:textColor="#fff"
+        android:backgroundTint="#43A047"
+        android:textAllCaps="false"
+        android:text="Mark My Attendence"
+        android:layout_gravity="center_horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+</LinearLayout>

@@ -20,11 +20,13 @@
         android:layout_marginTop="50dp"
         android:layout_width="match_parent"
         android:layout_height="500dp">
+
         <LinearLayout
             android:layout_margin="10dp"
             android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
+
             <TextView
                 android:id="@+id/reg_loginform"
                 android:layout_width="match_parent"

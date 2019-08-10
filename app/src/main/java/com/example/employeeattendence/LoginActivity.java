@@ -88,12 +88,12 @@ public class LoginActivity extends AppCompatActivity {
             email = userEmail.getText().toString();
             pass = userPass.getText().toString();
                 if(TextUtils.isEmpty(email)){
-                    userEmail.setError("Please enter email");
+                    userEmail.setError("Please enter Email");
                     return;
                 }
 
                 if(TextUtils.isEmpty(pass)){
-                    userPass.setError("Please enter pass");
+                    userPass.setError("Please enter Password");
                     return;
                 }
 

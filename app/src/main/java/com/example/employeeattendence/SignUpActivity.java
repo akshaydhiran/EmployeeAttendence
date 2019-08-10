@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.provider.SyncStateContract;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -17,12 +20,27 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.core.Constants;
 
-public class SignUpActivity extends AppCompatActivity {
+import java.util.ArrayList;
+import java.util.List;
+
+public class SignUpActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     EditText e1,e2,e3;
     Button btn;
     private static final String TAG = "SignUpActivity";
     private FirebaseAuth mAuth;
+
+    List<String> courseList = new ArrayList<>();
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+   // DatabaseReference myRef = database.getReference(Constants.);
+
+
+    String name,email,pass,course="";
+    SharedPreferences preferences;
+    SharedPreferences.Editor editor;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -46,11 +64,11 @@ public class SignUpActivity extends AppCompatActivity {
                     return;
                 }
                 if(TextUtils.isEmpty(pass)){
-                    e2.setError("Please enter pass");
+                    e2.setError("Please enter password");
                     return;
                 }
                 if(TextUtils.isEmpty(cnfPass)){
-                    e3.setError("Please confirm pass");
+                    e3.setError("Please confirm password");
                     return;
                 }
                 if(!pass.equals(cnfPass)){
@@ -91,6 +109,7 @@ public class SignUpActivity extends AppCompatActivity {
         }else{
             Intent intent = new Intent(SignUpActivity.this,LoginActivity.class);
             startActivity(intent);
+            finish();
         }
     }
     @Override
@@ -99,5 +118,15 @@ public class SignUpActivity extends AppCompatActivity {
         // Check if user is signed in (non-null) and update UI accordingly.
         FirebaseUser currentUser = mAuth.getCurrentUser();
         updateUI(currentUser);
+    }
+
+    @Override
+    public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+
+    }
+
+    @Override
+    public void onNothingSelected(AdapterView<?> adapterView) {
+
     }
 }

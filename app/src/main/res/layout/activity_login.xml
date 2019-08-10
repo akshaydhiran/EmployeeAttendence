@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -16,10 +15,10 @@
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="600dp"
+        android:layout_height="650dp"
         app:cardElevation="5dp"
         app:cardCornerRadius="5dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="5dp"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
@@ -43,7 +42,6 @@
                 android:id="@+id/log_username"
                 android:inputType="text"
                 android:drawableEnd="@drawable/ic_mail_black_24dp"
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:hint="EMAIL"
@@ -74,6 +72,16 @@
                 android:text="LOGIN"
 
                 />
+
+            <com.facebook.login.widget.LoginButton
+                android:id="@+id/login_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:onClick="onfblogin"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp" />
+
             <Button
                 android:id="@+id/log_phoneverify"
                 android:layout_marginStart="150dp"
@@ -82,8 +90,6 @@
                 android:textSize="16dp"
              android:drawableStart="@drawable/ic_perm_phone_msg_black_24dp"
                 android:text="PHONE VERIFICATION"
-
-
                 />
 
             <Button
@@ -96,14 +102,6 @@
 
                 />
 
-            <com.facebook.login.widget.LoginButton
-                android:id="@+id/login_button"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:onClick="onfblogin"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="30dp"
-                android:layout_marginBottom="30dp" />
             <Button
                 android:id="@+id/forgotpassword"
                 android:layout_marginStart="150dp"
