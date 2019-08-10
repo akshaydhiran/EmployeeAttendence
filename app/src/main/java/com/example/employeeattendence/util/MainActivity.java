@@ -1,4 +1,4 @@
-package util;
+package com.example.employeeattendence.util;
 
 import android.Manifest;
 import android.content.Context;
@@ -10,7 +10,6 @@ import android.location.LocationListener;
 import android.location.LocationManager;
 import android.net.Uri;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -38,12 +37,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import fragments.DashBoardFragments;
-import fragments.HomeFragments;
-import fragments.NotificationFragments;
+
+import fragments.DashBoardFragment;
+import fragments.HomeFragment;
+import fragments.NotificationFragment;
 import fragments.OnFragmentInteractionListener;
 
-import static fragments.DashBoardFragments.newInstance;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener , OnFragmentInteractionListener , LocationListener {
@@ -63,13 +62,13 @@ public class MainActivity extends AppCompatActivity
         public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
             switch (menuItem.getItemId()){
                 case R.id.navigation_home:
-                    setFragment(HomeFragments.newInstance("",""));
+                    setFragment(HomeFragment.newInstance("",""));
                     return true;
                 case R.id.navigation_dashboard:
-                    setFragment(DashBoardFragments.newInstance("",""));
+                    setFragment(DashBoardFragment.newInstance("",""));
                     return true;
                 case R.id.navigation_notifications:
-                    setFragment(NotificationFragments.newInstance("",""));
+                    setFragment(NotificationFragment.newInstance("",""));
                     return true;
             }
             return false;
@@ -112,7 +111,7 @@ public class MainActivity extends AppCompatActivity
 
         BottomNavigationView navView = findViewById(R.id.bott_nav_view);
         navView.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener);
-        setFragment(HomeFragments.newInstance("",""));
+        setFragment(HomeFragment.newInstance("",""));
 
         if (ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_COARSE_LOCATION)
                 != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(MainActivity.this, Manifest.permission.ACCESS_FINE_LOCATION)

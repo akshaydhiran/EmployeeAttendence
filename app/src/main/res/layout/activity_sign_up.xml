@@ -36,6 +36,14 @@
                 android:textAlignment="center"
                 android:textColor="#2A74B8"/>
             <EditText
+                android:id="@+id/reg_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="NAME"
+                android:drawableEnd="@drawable/ic_person_black_24dp"
+                android:inputType="textEmailAddress"/>
+            <EditText
                 android:id="@+id/reg_email"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -59,6 +67,13 @@
                 android:drawableEnd="@drawable/ic_lock_black_24dp"
                 android:inputType="textPassword"
                 />
+            <Spinner
+                android:id="@+id/s1"
+                android:layout_margin="5dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </Spinner>
             <Button
                 android:layout_marginTop="20dp"
                 android:id="@+id/reg_signup"

@@ -2,9 +2,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.HomeFragments"
     android:orientation="vertical"
-    android:background="#E5F0F3">
+    tools:context="fragments.HomeFragment">
 
     <ImageView
         android:layout_width="match_parent"

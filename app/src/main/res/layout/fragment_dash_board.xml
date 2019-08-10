@@ -3,14 +3,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context="fragments.NotificationFragments">
+    tools:context="fragments.DashBoardFragment">
 
     <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="80dp"
-        android:src="@drawable/goldman_sachs_logo"/>
+    android:layout_width="wrap_content"
+    android:layout_height="80dp"
+    android:src="@drawable/goldman_sachs_logo"/>
     <LinearLayout
-        android:background="#3FA3F8"
+        android:background="#00BFA5"
         android:orientation="horizontal"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -56,5 +56,4 @@
         android:layout_height="wrap_content">
 
     </ListView>
-
 </LinearLayout>

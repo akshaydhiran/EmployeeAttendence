@@ -4,6 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
@@ -12,6 +13,9 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.employeeattendence.model.Student;
+import com.example.employeeattendence.util.Constants;
+import com.example.employeeattendence.util.MainActivity;
 import com.facebook.AccessToken;
 import com.facebook.CallbackManager;
 import com.facebook.FacebookCallback;
@@ -25,8 +29,13 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
-import util.MainActivity;
+//import util.MainActivity;
 
 public class LoginActivity extends AppCompatActivity {
     EditText userEmail,userPass;
@@ -35,12 +44,18 @@ public class LoginActivity extends AppCompatActivity {
     private static final String TAG = "LoginActivity";
 
     public CallbackManager mCallbackManager;
+    SharedPreferences pref;
+    SharedPreferences.Editor editor;
+
+    FirebaseDatabase database = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = database.getReference(Constants.STUDENT);
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        getSupportActionBar().hide();
         userEmail = findViewById(R.id.log_username);
         userPass = findViewById(R.id.log_password);
         loginButton = findViewById(R.id.loginuser);
@@ -49,6 +64,9 @@ public class LoginActivity extends AppCompatActivity {
 
         phoneVerifyButton = findViewById(R.id.log_phoneverify);
         mAuth = FirebaseAuth.getInstance();
+
+        pref = getSharedPreferences("prefs",MODE_PRIVATE);
+        editor = pref.edit();
 
 
 
@@ -113,6 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                                     // If sign in fails, display a message to the user.
                                     Log.w(TAG, "signInWithEmail:failure", task.getException());
                                     Toast.makeText(LoginActivity.this, "Authentication failed.",Toast.LENGTH_SHORT).show();
+                                    updateUI(null);
 
                                 }
 
@@ -200,16 +219,37 @@ public class LoginActivity extends AppCompatActivity {
                 });
     }
 
+    private void getUserData(FirebaseUser user){
+        myRef.child(user.getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                Student s = dataSnapshot.getValue(Student.class);
+                editor.putString(Constants.NAME,s.getName());
+                editor.putString(Constants.EMAIL,s.getEmail());
+                editor.putString(Constants.COURSE,s.getCourse());
+                editor.commit();
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            }
 
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                Toast.makeText(LoginActivity.this, "Student details error", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
 
 
     private void updateUI(FirebaseUser user){
         if(user==null){
+            getUserData(user);
 
-        }else{
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
         }
+        //else{
+          //  Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            //startActivity(intent);
+        //}
     }
     @Override
     protected void onStart() {

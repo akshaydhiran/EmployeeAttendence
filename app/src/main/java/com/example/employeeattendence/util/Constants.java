@@ -1,4 +1,4 @@
-package util;
+package com.example.employeeattendence.util;
 
 public class Constants {
     public static final String STUDENT = "Student";
